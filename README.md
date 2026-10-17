@@ -21,7 +21,7 @@ The bars are the vanilla tab-list ping icons and the head is the player's skin. 
 ./gradlew build        # Windows: gradlew.bat build
 ```
 
-The plugin jar is written to `build/libs/PingBoard-1.0.2.jar`.
+The plugin jar is written to `build/libs/PingBoard-1.0.9.jar`.
 
 ## Install
 

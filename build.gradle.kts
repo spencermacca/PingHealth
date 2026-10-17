@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "co.spencermedia"
-version = "1.0.2"
+version = "1.0.9"
 description = "Admin debugging sidebar that shows every online player's ping."
 
 repositories {
