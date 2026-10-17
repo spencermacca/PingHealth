@@ -8,7 +8,7 @@ An admin debugging tool for Paper 26.3. `/ping` toggles a sidebar showing every 
 
 Lines are laid out like the tab list, with the ping in milliseconds after the bars.
 
-The bars are the vanilla tab-list ping icons and the head is the player's skin. Both are drawn with Adventure object components, so no resource pack is needed. The ping text colours match the coloured bars of the VanillaTweaks ping icon pack.
+The bars are the vanilla tab-list ping icons and the head is the player's skin. Both are drawn with Adventure object components, so no resource pack is needed. The ping text colours match the bar shadow colours of the VanillaTweaks ping icon pack.
 
 ## Requirements
 

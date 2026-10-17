@@ -27,14 +27,14 @@ final class PingLine {
         sprite("icon/ping_4"),
         sprite("icon/ping_5"),
     };
-    // Matches the bar fill colours of the VanillaTweaks coloured ping icons.
+    // Matches the bar shadow colours of the VanillaTweaks coloured ping icons.
     private static final TextColor[] PING_COLORS = {
-        NamedTextColor.GRAY,
-        TextColor.color(0x910003),
-        TextColor.color(0xFF4300),
-        TextColor.color(0xFFA500),
-        TextColor.color(0xF3FF00),
-        TextColor.color(0x00FF21),
+        NamedTextColor.DARK_GRAY,
+        TextColor.color(0x4D0003),
+        TextColor.color(0x872100),
+        TextColor.color(0x875500),
+        TextColor.color(0x838700),
+        TextColor.color(0x00870F),
     };
 
     private PingLine() {
