@@ -4,14 +4,19 @@ import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.object.ObjectContents;
 import org.bukkit.entity.Player;
 
-/** Builds one sidebar line: {@code [ping bars] [player head] | [name] [ping]ms}. */
+/**
+ * Builds a sidebar line laid out like the tab list, with the ping after the bars:
+ * {@code [player head][name] [ping bars] [ping]ms}.
+ */
 final class PingLine {
 
     private static final Key GUI_ATLAS = Key.key("minecraft:gui");
-    private static final Component SEPARATOR = Component.text(" | ", NamedTextColor.DARK_GRAY);
+    // U+200C is 0px wide in the vanilla font, and bold adds 1px: the same 1px head gap as the tab list.
+    private static final Component PIXEL_GAP = Component.text("\u200c").decorate(TextDecoration.BOLD);
 
     // Indexed by bar count; 0 is "unknown".
     private static final Component[] BAR_ICONS = {
@@ -39,12 +44,13 @@ final class PingLine {
         int bars = bars(ping);
         String pingText = (ping < 0 ? "?" : Integer.toString(ping)) + "ms";
         return Component.textOfChildren(
-            BAR_ICONS[bars],
-            Component.space(),
             Component.object(ObjectContents.playerHead(player.getUniqueId())),
-            SEPARATOR,
+            PIXEL_GAP,
             Component.text(player.getName(), NamedTextColor.WHITE),
             Component.space(),
+            BAR_ICONS[bars],
+            PIXEL_GAP,
+            PIXEL_GAP,
             Component.text(pingText, PING_COLORS[bars])
         );
     }

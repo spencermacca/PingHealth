@@ -88,6 +88,7 @@ final class PingBoard implements Listener {
         Scoreboard board = Bukkit.getScoreboardManager().getNewScoreboard();
         Objective objective = board.registerNewObjective(OBJECTIVE_NAME, Criteria.DUMMY, settings.title());
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+        // Hide the score column entirely. A visible column makes the client reserve a ": "-wide gap before it.
         objective.numberFormat(NumberFormat.blank());
 
         Viewer viewer = new Viewer(player.getScoreboard(), board, objective);

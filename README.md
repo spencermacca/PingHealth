@@ -3,8 +3,10 @@
 An admin debugging tool for Paper 26.3. `/ping` toggles a sidebar showing every online player's ping, lowest at the top. The sidebar appears only for the player who ran the command.
 
 ```
-▮▮▮▮ (head) | Steve 87ms
+(head)Steve ▮▮▮▮ 87ms
 ```
+
+Lines are laid out like the tab list, with the ping in milliseconds after the bars.
 
 The bars are the vanilla tab-list ping icons and the head is the player's skin. Both are drawn with Adventure object components, so no resource pack is needed. The ping text colours match the coloured bars of the VanillaTweaks ping icon pack.
 
