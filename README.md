@@ -1,6 +1,6 @@
 # PingBoard
 
-An admin debugging tool for Paper 26.3. `/ping` toggles a sidebar showing every online player's ping, highest first. The sidebar appears only for the player who ran the command.
+An admin debugging tool for Paper 26.3. `/ping` toggles a sidebar showing every online player's ping, lowest at the top. The sidebar appears only for the player who ran the command.
 
 ```
 ▮▮▮▮ (head) | Steve 87ms

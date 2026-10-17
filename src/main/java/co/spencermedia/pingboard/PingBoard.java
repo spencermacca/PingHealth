@@ -117,7 +117,7 @@ final class PingBoard implements Listener {
         }
     }
 
-    /** The highest pings first, limited to {@code max-lines}. */
+    /** The {@code max-lines} highest pings. The client orders them on screen by {@link #sortKey}. */
     private List<Line> snapshot() {
         record Sample(Player player, int ping) {
         }
@@ -128,6 +128,11 @@ final class PingBoard implements Listener {
             .limit(settings.maxLines())
             .map(s -> new Line(entry(s.player().getUniqueId()), s.ping(), PingLine.render(s.player(), s.ping())))
             .toList();
+    }
+
+    /** The client lists higher scores first, so negate: lowest ping on top, unknown pings at the bottom. */
+    private static int sortKey(int ping) {
+        return ping < 0 ? Integer.MIN_VALUE : -ping;
     }
 
     private boolean stopIfIdle() {
@@ -168,11 +173,12 @@ final class PingBoard implements Listener {
             for (Line line : lines) {
                 stale.remove(line.entry());
                 Integer before = shown.put(line.entry(), line.ping());
-                if (before == null || before != line.ping()) {
-                    Score score = objective.getScore(line.entry());
-                    score.setScore(line.ping()); // the client sorts sidebar lines by this value, highest first
-                    score.customName(line.text());
+                if (before != null && before == line.ping()) {
+                    continue;
                 }
+                Score score = objective.getScore(line.entry());
+                score.setScore(sortKey(line.ping()));
+                score.customName(line.text());
             }
             for (String entry : stale) {
                 remove(entry);
