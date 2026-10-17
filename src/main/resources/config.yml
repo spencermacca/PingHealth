@@ -1,0 +1,22 @@
+# How often the sidebar refreshes, in server ticks (20 ticks = 1 second).
+# 10-20 is recommended.
+refresh-interval: 10
+
+# Sidebar title, in MiniMessage format: https://docs.papermc.io/adventure/minimessage/format/
+title: "<yellow><bold>Ping</bold></yellow>"
+
+# Maximum number of players listed (1-15). When more players are online,
+# the highest pings are shown.
+max-lines: 15
+
+# Where ping values come from:
+#   keepalive - Player#getPing(). On Paper 26.3 this is the average keep-alive
+#               round trip over the last 5 seconds (keep-alives are sent every
+#               second). Smooth, but it lags behind spikes and does not rise
+#               while a client has stopped responding.
+#   probe     - times a small cookie request/response to each player on every
+#               refresh. Shows the latest single round trip, and a client that
+#               has stopped answering shows its wait time growing straight away.
+#               Clients that never answer fall back to keepalive.
+#               See README.md for caveats (proxies, ViaVersion, Geyser).
+ping-source: keepalive

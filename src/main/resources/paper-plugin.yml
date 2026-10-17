@@ -1,0 +1,12 @@
+name: PingBoard
+version: "${version}"
+main: co.spencermedia.pingboard.PingBoardPlugin
+description: "${description}"
+api-version: '26.3'
+authors: [smacca]
+website: https://spencermedia.co
+
+permissions:
+  pingboard.admin:
+    description: Allows toggling the ping sidebar with /ping.
+    default: op
